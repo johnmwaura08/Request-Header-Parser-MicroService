@@ -38,4 +38,13 @@ app.use(function(err, req, res, next) {
   res.render('error');
 });
 
+
+app.get("/api/whoami", function (req, res) {
+  const language=req.header('Accept-Language');
+  const software = req.header('User-Agent')
+  const ipaddress = '125.0.0.2';
+    
+    res.json({language,software,ipaddress});
+  });
+
 module.exports = app;
